@@ -68,7 +68,7 @@ public class MyJob extends Configured implements Tool{
 		job.setOutputFormat(TextOutputFormat.class);
 		
 		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(IntWritable.class);
+		job.setOutputValueClass(Text.class);
 		job.set("key.value.separator.in.input.line", ",");
 		
 		JobClient.runJob(job);
