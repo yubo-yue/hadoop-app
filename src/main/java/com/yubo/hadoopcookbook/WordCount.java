@@ -60,6 +60,10 @@ public class WordCount {
 		Job job = new Job(conf, "word count");
 		job.setJarByClass(WordCount.class);
 		job.setMapperClass(TokenizerMapper.class);
+		/**
+		 * here we use the IntSumReducer class as the combiner class, to low the transfer cost.
+		 */
+		job.setCombinerClass(IntSumReducer.class);
 		job.setReducerClass(IntSumReducer.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
